@@ -10,6 +10,7 @@
 #include "IrAnalyzer.h"
 #include "IrProtocolScanner.h"
 #include "IrSniffer.h"
+#include "IrVirtualRemotes.h"
 #include "VirtualKeyboard.h"
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -848,6 +849,22 @@ static void runIrTxTest() {
 // ═══════════════════════════════════════════════════════════════════════════
 //  Public entry point
 // ═══════════════════════════════════════════════════════════════════════════
+uint8_t signalToolsSavedIrMax() {
+    return IR_SAVE_MAX;
+}
+
+bool signalToolsLoadSavedIrInfo(uint8_t slot, String* name, uint16_t* count) {
+    return loadSavedIrSlot(slot, name, nullptr, count);
+}
+
+bool signalToolsReplaySavedIrSlot(uint8_t slot) {
+    String name;
+    if (!loadSavedIrToLast(slot, &name)) return false;
+    sendIrRaw(lastIrRaw, lastIrRawCount);
+    irRxMode();
+    return true;
+}
+
 void runSignalTools() {
     static const char* items[] = {
         "Hardware Diag",
@@ -858,6 +875,7 @@ void runSignalTools() {
         "IR Raw Capture",
         "IR Replay Last",
         "Saved IR",
+        "IR Remotes",
         "IR TX Test"
     };
 
@@ -875,7 +893,8 @@ void runSignalTools() {
             case  5: runIrRawCapture();   break;
             case  6: runIrReplayLast();   break;
             case  7: runSavedIrCaptures(); break;
-            case  8: runIrTxTest();       break;
+            case  8: runIrVirtualRemotes(); break;
+            case  9: runIrTxTest();       break;
         }
     }
 
