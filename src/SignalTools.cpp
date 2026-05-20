@@ -8,6 +8,8 @@
 #include "Pins.h"
 #include "SoundUtils.h"
 #include "IrAnalyzer.h"
+#include "IrProtocolScanner.h"
+#include "IrSniffer.h"
 #include "VirtualKeyboard.h"
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -851,6 +853,8 @@ void runSignalTools() {
         "Hardware Diag",
         "Input Monitor",
         "IR Analyzer",
+        "Protocol Scan",
+        "IR Sniffer",
         "IR Raw Capture",
         "IR Replay Last",
         "Saved IR",
@@ -866,10 +870,12 @@ void runSignalTools() {
             case  0: runHardwareDiag();   break;
             case  1: runInputMonitor();   break;
             case  2: runIrAnalyzer();     break;
-            case  3: runIrRawCapture();   break;
-            case  4: runIrReplayLast();   break;
-            case  5: runSavedIrCaptures(); break;
-            case  6: runIrTxTest();       break;
+            case  3: runIrProtocolScanner(); break;
+            case  4: runIrSniffer();      break;
+            case  5: runIrRawCapture();   break;
+            case  6: runIrReplayLast();   break;
+            case  7: runSavedIrCaptures(); break;
+            case  8: runIrTxTest();       break;
         }
     }
 
