@@ -39,6 +39,9 @@
 #define CC1101_CSN_PIN  21
 #define CC1101_GDO0_PIN 35
 #define CC1101_GDO2_PIN -1
+// Optional lab TX data line for CC1101 async OOK replay.
+// Wire CC1101 GDO0 to this GPIO as an extra jumper; keep GPIO35 for RX.
+#define CC1101_TX_DATA_PIN 15
 
 #define OK_LONGPRESS_MS 650
 

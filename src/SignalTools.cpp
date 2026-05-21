@@ -8,7 +8,9 @@
 #include "Pins.h"
 #include "SoundUtils.h"
 #include "IrAnalyzer.h"
+#include "IrNightVisionDetector.h"
 #include "IrProtocolScanner.h"
+#include "IrProximityTest.h"
 #include "IrSniffer.h"
 #include "IrVirtualRemotes.h"
 #include "VirtualKeyboard.h"
@@ -876,6 +878,8 @@ void runSignalTools() {
         "IR Replay Last",
         "Saved IR",
         "IR Remotes",
+        "Night IR",
+        "IR Proximity",
         "IR TX Test"
     };
 
@@ -894,7 +898,9 @@ void runSignalTools() {
             case  6: runIrReplayLast();   break;
             case  7: runSavedIrCaptures(); break;
             case  8: runIrVirtualRemotes(); break;
-            case  9: runIrTxTest();       break;
+            case  9: runIrNightVisionDetector(); break;
+            case 10: runIrProximityTest(); break;
+            case 11: runIrTxTest();       break;
         }
     }
 

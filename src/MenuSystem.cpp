@@ -4,13 +4,19 @@
 #include "SoundUtils.h"
 
 #include "WifiScanner.h"
+#include "WifiChannelScanner.h"
+#include "WifiRadar.h"
+#include "WifiDirectionFinder.h"
 #include "RadioScanner.h"
 #include "RadioJammer.h"
 #include "SignalTools.h"
+#include "CC1101Tools.h"
 #include "PacketMonitor.h"
 #include "SettingsMenu.h"
 #include "SystemInfo.h"
-#include "BLEScanner.h"
+#include "BLEDeviceRadar.h"
+#include "BLEInspector.h"
+#include "BLEIPhoneRemote.h"
 #include "BLESpam.h"
 #include "BTDisruptor.h"
 #include "BeaconSpam.h"
@@ -385,6 +391,9 @@ static void changeMainEntry(int nextEntry) {
 static void handlerWifi() {
     static const char* wifiItems[] = {
         "WiFi Scanner",
+        "Channel Scan",
+        "WiFi Radar",
+        "Direction Finder",
         "Beacon Spam",
         "Deauther",
         "Evil Portal",
@@ -399,11 +408,14 @@ static void handlerWifi() {
         switch (choice) {
             case -1: exitSub = true;    break;
             case  0: runWifiScan();     break;
-            case  1: runBeaconSpam();   break;
-            case  2: runDeauther();     break;
-            case  3: runEvilPortal();   break;
-            case  4: runProbeSniffer(); break;
-            case  5: runKarma();        break;
+            case  1: runWifiChannelScanner(); break;
+            case  2: runWifiRadar();    break;
+            case  3: runWifiDirectionFinder(); break;
+            case  4: runBeaconSpam();   break;
+            case  5: runDeauther();     break;
+            case  6: runEvilPortal();   break;
+            case  7: runProbeSniffer(); break;
+            case  8: runKarma();        break;
         }
     }
 }
@@ -412,7 +424,8 @@ static void handlerRadio() {
     static const char* radioItems[] = {
         "Jammer",
         "Spectrum",
-        "Signal Tools"
+        "Signal Tools",
+        "CC1101"
     };
 
     bool exitSub = false;
@@ -424,13 +437,16 @@ static void handlerRadio() {
             case  0: runRadioJammer();     break;
             case  1: runRadioScanner();    break;
             case  2: runSignalTools();      break;
+            case  3: runCC1101Tools();      break;
         }
     }
 }
 
 static void handlerBT() {
     static const char* btItems[] = {
-        "BLE Scanner",
+        "BLE Device Radar",
+        "BLE Inspector",
+        "iPhone Remote",
         "BLE Spam",
         "BT Disruptor"
     };
@@ -441,9 +457,11 @@ static void handlerBT() {
                                 sizeof(btItems) / sizeof(char*));
         switch (choice) {
             case -1: exitSub = true;   break;
-            case  0: runBLEScanner();  break;
-            case  1: runBLESpam();     break;
-            case  2: runBTDisruptor(); break;
+            case  0: runBLEDeviceRadar(); break;
+            case  1: runBLEInspector();   break;
+            case  2: runBLEIPhoneRemote(); break;
+            case  3: runBLESpam();        break;
+            case  4: runBTDisruptor();    break;
         }
     }
 }
