@@ -293,39 +293,21 @@ Los botones usan pull-up interno. Al presionarlos, el pin va a `LOW`.
 ## Diagrama visual de conexiones
 
 ```mermaid
-flowchart TB
-  ESP(("ESP32 Dev Module<br/>centro de conexiones<br/>SPI compartido: 18/23/19<br/>GND comun")):::esp
+flowchart LR
+  ESP(("ESP32 Dev Module<br>centro de conexiones<br>SPI compartido: GPIO18 / GPIO23 / GPIO19<br>GND comun")):::esp
 
-  TFT["TFT 480x320 ILI9488<br/>SCK GPIO18<br/>MOSI GPIO23<br/>CS GPIO5<br/>DC GPIO22<br/>RST GPIO4<br/>BL GPIO13"]:::display
-  NRF1["nRF24L01 #1<br/>SPI 18/23/19<br/>CE GPIO27<br/>CSN GPIO14<br/>3.3V + GND"]:::radio
-  NRF2["nRF24L01 #2<br/>SPI 18/23/19<br/>CE GPIO17<br/>CSN GPIO16<br/>3.3V + GND"]:::radio
-  IR["M5Stack IR Unit<br/>OUT/TX GPIO26<br/>IN/RX GPIO34<br/>5V + GND"]:::ir
-  CC["CC1101<br/>SPI 18/23/19<br/>CSN GPIO21<br/>GDO0 RX GPIO35<br/>TX opcional GPIO15<br/>3.3V + GND"]:::cc
-  BTN["Botones<br/>UP GPIO32<br/>OK GPIO33<br/>DOWN GPIO25<br/>cada boton a GND"]:::btn
+  NRF1["nRF24L01 #1<br>SPI 18/23/19<br>CE GPIO27<br>CSN GPIO14<br>3.3V + GND"]:::radio
+  NRF2["nRF24L01 #2<br>SPI 18/23/19<br>CE GPIO17<br>CSN GPIO16<br>3.3V + GND"]:::radio
+  IR["M5Stack IR Unit<br>OUT/TX GPIO26<br>IN/RX GPIO34<br>5V + GND"]:::ir
 
-  subgraph ARRIBA[""]
-    direction LR
-    NRF1
-    TFT
-    NRF2
-  end
+  TFT["TFT 480x320 ILI9488<br>SCK GPIO18<br>MOSI GPIO23<br>CS GPIO5<br>DC GPIO22<br>RST GPIO4<br>BL GPIO13"]:::display
+  CC["CC1101<br>SPI 18/23/19<br>CSN GPIO21<br>GDO0 RX GPIO35<br>TX opcional GPIO15<br>3.3V + GND"]:::cc
+  BTN["Botones<br>UP GPIO32<br>OK GPIO33<br>DOWN GPIO25<br>cada boton a GND"]:::btn
 
-  subgraph CENTRO[""]
-    direction LR
-    IR
-    ESP
-    CC
-  end
-
-  subgraph ABAJO[""]
-    direction LR
-    BTN
-  end
-
+  NRF1 --- ESP
+  NRF2 --- ESP
+  IR --- ESP
   ESP --- TFT
-  ESP --- NRF1
-  ESP --- NRF2
-  ESP --- IR
   ESP --- CC
   ESP --- BTN
 
@@ -335,9 +317,6 @@ flowchart TB
   classDef ir fill:#111827,stroke:#ef4444,stroke-width:2px,color:#ffffff;
   classDef cc fill:#111827,stroke:#a855f7,stroke-width:2px,color:#ffffff;
   classDef btn fill:#111827,stroke:#e5e7eb,stroke-width:2px,color:#ffffff;
-  style ARRIBA fill:transparent,stroke:transparent
-  style CENTRO fill:transparent,stroke:transparent
-  style ABAJO fill:transparent,stroke:transparent
 ```
 
 ## Pin map rapido
