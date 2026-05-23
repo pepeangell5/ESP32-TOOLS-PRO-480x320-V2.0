@@ -202,6 +202,29 @@ El dashboard no ejecuta funciones que toman control completo del WiFi como Deaut
 | Interruptor | ![Interruptor](img/componentes/interruptor.png) |
 | Placa PCB / montaje | ![Placa PCB](img/componentes/placapcb.png) |
 
+### Diagramas de conexiones completas
+
+Estos diagramas muestran el cableado por bloques para que sea mas facil soldar y revisar el montaje sin saturar una sola imagen.
+
+#### Pantalla TFT y botones
+
+![Conexiones pantalla ILI9488 y botones al ESP32](img/componentes/conexiones-pantalla-botones-esp32.jpg)
+
+#### Modulos nRF24L01
+
+![Conexiones de dos nRF24L01 al ESP32](img/componentes/conexiones-NRF24-ESP32.jpg)
+
+#### CC1101 e IR Remote
+
+![Conexiones CC1101 e IR Remote al ESP32](img/componentes/conexiones-CC1101-IR.jpg)
+
+### Pinouts de referencia
+
+| Modulo | Pinout |
+| --- | --- |
+| nRF24L01 PA + LNA | ![Pinout nRF24L01 PA LNA](img/componentes/Pines_NRF24.png) |
+| CC1101 | ![Pinout CC1101](img/componentes/cc1101-pines.png) |
+
 ## Tabla de conexiones
 
 Todos los modulos deben compartir `GND` con el ESP32. No conectes ningun modulo de 3.3V a 5V.
