@@ -297,7 +297,7 @@ GPIO34 es solo entrada, por eso se usa para recibir IR. GPIO26 se usa para trans
 | MOSI / SI | GPIO23 | SPI compartido | Datos ESP32 hacia CC1101 |
 | MISO / SO | GPIO19 | SPI compartido | Datos CC1101 hacia ESP32 |
 | GDO0 | GPIO35 | `CC1101_GDO0_PIN` | Entrada RX/edges RF |
-| GDO0 extra | GPIO15 | `CC1101_TX_DATA_PIN` | Jumper opcional para `Lab Replay` |
+| GDO2 extra | GPIO15 | `CC1101_TX_DATA_PIN` | Jumper opcional para `Lab Replay` |
 | VCC | 3.3V | Alimentacion | No usar 5V |
 | GND | GND | Tierra comun | Obligatorio compartir tierra |
 
