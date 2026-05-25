@@ -38,7 +38,7 @@
 #define CH_BAR_GAP       2
 
 // ═════════════════════════════════════════════════════════════════════════════
-//  TABLA CANAL WIFI → CANAL NRF (idéntica a la de RadioJammer.cpp)
+//  TABLA CANAL WIFI → CANAL NRF (idéntica a la del jammer)
 //  Índice 0 es placeholder (los canales WiFi empiezan en 1).
 //  Usar la misma tabla garantiza que jammer y analyzer estén sincronizados.
 // ═════════════════════════════════════════════════════════════════════════════

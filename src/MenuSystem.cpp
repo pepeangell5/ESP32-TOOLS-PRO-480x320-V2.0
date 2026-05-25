@@ -8,7 +8,7 @@
 #include "WifiRadar.h"
 #include "WifiDirectionFinder.h"
 #include "RadioScanner.h"
-#include "RadioJammer.h"
+#include "jammer.h"
 #include "SignalTools.h"
 #include "CC1101Tools.h"
 #include "PacketMonitor.h"
@@ -19,6 +19,7 @@
 #include "BLEIPhoneRemote.h"
 #include "BLESpam.h"
 #include "BTDisruptor.h"
+#include "bt_jammer.h"
 #include "BeaconSpam.h"
 #include "Deauther.h"
 #include "EvilPortal.h"
@@ -435,7 +436,7 @@ static void handlerRadio() {
                                 sizeof(radioItems) / sizeof(char*));
         switch (choice) {
             case -1: exitSub = true;       break;
-            case  0: runRadioJammer();     break;
+            case  0: runJammer();          break;
             case  1: runRadioScanner();    break;
             case  2: runSignalTools();      break;
             case  3: runCC1101Tools();      break;
@@ -449,7 +450,8 @@ static void handlerBT() {
         "BLE Inspector",
         "iPhone Remote",
         "BLE Spam",
-        "BT Disruptor"
+        "BT Disruptor",
+        "BT Jammer"
     };
 
     bool exitSub = false;
@@ -463,6 +465,7 @@ static void handlerBT() {
             case  2: runBLEIPhoneRemote(); break;
             case  3: runBLESpam();        break;
             case  4: runBTDisruptor();    break;
+            case  5: runBTJammer();       break;
         }
     }
 }

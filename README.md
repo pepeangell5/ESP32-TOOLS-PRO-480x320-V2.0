@@ -13,10 +13,13 @@ Firmware multi-herramienta para ESP32 Dev Module con pantalla TFT SPI 480x320. E
 
 - Soporte para M5Stack IR Unit con captura, replay, guardado de senales y controles virtuales.
 - Soporte para modulo CC1101 sub-GHz dentro de `Radio Tools > CC1101`.
+- `Jammer` renovado en `Radio Tools` para pruebas 2.4 GHz con doble nRF24L01.
+- Nuevo `BT Jammer` dentro de `Bluetooth Tools` para barrido educativo 2.4 GHz en laboratorio propio.
 - Nuevas herramientas WiFi: Channel Scan, WiFi Radar y WiFi Direction Finder.
 - Nuevo BLE Device Radar con seguimiento de RSSI, cercania estimada y detalles limpios.
 - Nuevo BLE Inspector para ver fabricante, tipo, appearance y servicios.
 - iPhone Remote/BLE HID experimental para pruebas con dispositivos propios.
+- Splash actualizado con animacion de texto mas limpia y marca `BWifiKill`.
 - Menus con menos parpadeo, cursor recordado al volver y pantallas de diagnostico mas claras.
 - Documentacion de pines para soldar el hardware adicional sin adivinar.
 
@@ -82,7 +85,7 @@ Limitacion importante: el ESP32 clasico solo trabaja WiFi 2.4 GHz. No puede esca
 
 ### Radio Tools
 
-- `Radio Jammer`: usa los nRF24L01 para pruebas de interferencia 2.4 GHz en laboratorio propio.
+- `Jammer`: modo renovado para pruebas 2.4 GHz en laboratorio propio. Permite elegir canal WiFi, activar/detener con `OK` y usa los dos nRF24L01 cuando estan disponibles.
 - `Radio Scanner`: analizador visual 2.4 GHz con espectro, actividad por canal y vistas tipo waterfall.
 - `Signal Tools`: herramientas IR y diagnostico basico de pines.
 - `CC1101`: menu dedicado para sub-GHz con diagnostico, espectro, monitor, finder y analisis RF.
@@ -136,6 +139,7 @@ Notas CC1101:
 - `iPhone Remote`: modo BLE HID experimental para emparejamiento/control basico en dispositivos propios.
 - `BLE Spam`: pruebas BLE educativas en laboratorio.
 - `BT Disruptor`: pruebas Bluetooth de laboratorio controlado.
+- `BT Jammer`: barrido 2.4 GHz con doble nRF24L01 para pruebas educativas de corto alcance en entorno propio.
 
 ### System Tools
 
@@ -414,6 +418,7 @@ Si la subida falla con error de boot/serial, manten presionado `BOOT` al iniciar
 - El CC1101 da lecturas aproximadas de RSSI/frecuencia; no es un analizador de espectro profesional.
 - `IR Proximity` es experimental y puede quedarse en `NONE` dependiendo del angulo y rebote fisico.
 - Los aires acondicionados suelen usar senales largas con estado completo; guarda cada funcion por separado.
+- `Jammer`, `BT Jammer`, `BLE Spam`, `BT Disruptor`, `Deauther`, `KARMA` y `Beacon Spam` son funciones de laboratorio. Pueden degradar comunicaciones cercanas y deben usarse solo con autorizacion.
 - `Lab Replay` RF esta pensado para focos, enchufes o dispositivos propios de codigo fijo. No es para vehiculos, alarmas, cerraduras ni portones.
 - Los modulos RF433T/RF433R quedan fuera de V2.0.
 

@@ -153,14 +153,34 @@ static void animateScanIn(int x0, int y0) {
 // ═══════════════════════════════════════════════════════════════════════════
 static void typeOn(int x, int y, const String& txt, uint16_t color,
                    int size, FontType font, int msPerChar) {
-    String partial = "";
     for (int i = 0; i < (int)txt.length(); i++) {
-        partial += txt[i];
-        tft.fillRect(x, y, 320 - x, (font == FONT_BIG) ? 32 : 16, BOOT_BG);
-        if (font == FONT_BIG) drawStringBig(x, y, partial, color, size);
-        else drawStringCustom(x, y, partial, color, size);
+        String nextChar = txt.substring(i, i + 1);
+        int charX = x + getTextWidth(txt.substring(0, i), size, font);
+        if (font == FONT_BIG) drawStringBig(charX, y, nextChar, color, size);
+        else drawStringCustom(charX, y, nextChar, color, size);
         delay(msPerChar);
     }
+}
+
+static void drawSplashFrame() {
+    tft.fillScreen(BOOT_BG);
+
+    tft.drawFastHLine(0, 0, 320, BOOT_LINE);
+    tft.drawFastHLine(0, 239, 320, BOOT_LINE);
+    tft.drawFastVLine(0, 0, 240, BOOT_LINE);
+    tft.drawFastVLine(319, 0, 240, BOOT_LINE);
+
+    tft.drawFastHLine(2, 2, 316, BOOT_LINE);
+    tft.drawFastHLine(2, 237, 316, BOOT_LINE);
+    tft.drawFastVLine(2, 2, 236, BOOT_LINE);
+    tft.drawFastVLine(317, 2, 236, BOOT_LINE);
+
+    tft.drawFastHLine(0, 34, 320, BOOT_LINE);
+    tft.drawFastHLine(0, 206, 320, BOOT_LINE);
+
+    // Reinforce the right edge after horizontal separators are drawn.
+    tft.drawFastVLine(319, 0, 240, BOOT_LINE);
+    tft.drawFastVLine(317, 2, 236, BOOT_LINE);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -187,11 +207,7 @@ static void drawLoadingStep(const String& stepText, int progress,
 //  MAIN · SPLASH SCREEN
 // ═══════════════════════════════════════════════════════════════════════════
 void runSplashScreen() {
-    tft.fillScreen(BOOT_BG);
-    tft.drawRect(0, 0, 320, 240, BOOT_LINE);
-    tft.drawRect(2, 2, 316, 236, BOOT_LINE);
-    tft.drawFastHLine(0, 34, 320, BOOT_LINE);
-    tft.drawFastHLine(0, 206, 320, BOOT_LINE);
+    drawSplashFrame();
 
     drawStringCustom(12, 12, "MINIMAL MODE", BOOT_TEXT, 1);
     drawStringCustom(236, 12, "BUILD 2026", BOOT_TEXT, 1);
@@ -203,9 +219,9 @@ void runSplashScreen() {
     int titleX = (320 - getTextWidth(title, 2, FONT_BIG)) / 2;
     typeOn(titleX, 78, title, BOOT_TEXT, 2, FONT_BIG, 35);
 
-    String sub = "MODERN MINIMAL";
-    int subX = (320 - getTextWidth(sub, 1, FONT_SMALL)) / 2;
-    typeOn(subX, 124, sub, BOOT_TEXT, 1, FONT_SMALL, 25);
+    String sub = "BWifiKill";
+    int subX = (320 - getTextWidth(sub, 1, FONT_BIG)) / 2;
+    typeOn(subX, 120, sub, TFT_RED, 1, FONT_BIG, 25);
 
     drawLoadingStep("NVS READY",         25, 1200);
     delay(120);
