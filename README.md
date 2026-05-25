@@ -9,6 +9,41 @@ Firmware multi-herramienta para ESP32 Dev Module con pantalla TFT SPI 480x320. E
 [![Instagram](https://img.shields.io/badge/Instagram-pepeangelll-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/pepeangelll)
 [![Facebook](https://img.shields.io/badge/Facebook-ESP32Tools-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/esp32tools/)
 
+## Indice
+
+- [Que cambia frente a V1.0](#que-cambia-frente-a-v10)
+- [Hardware objetivo](#hardware-objetivo)
+- [Galeria](#galeria)
+- [Capturas del firmware](#capturas-del-firmware)
+- [Navegacion](#navegacion)
+- [Funciones principales](#funciones-principales)
+  - [WiFi Tools](#wifi-tools)
+  - [Radio Tools](#radio-tools)
+  - [Signal Tools / IR](#signal-tools--ir)
+  - [CC1101 Tools](#cc1101-tools)
+  - [Bluetooth Tools](#bluetooth-tools)
+  - [System Tools](#system-tools)
+  - [Web Dashboard](#web-dashboard)
+- [Componentes usados](#componentes-usados)
+  - [Imagenes de componentes](#imagenes-de-componentes)
+  - [Diagramas de conexiones completas](#diagramas-de-conexiones-completas)
+  - [Pinouts de referencia](#pinouts-de-referencia)
+- [Tabla de conexiones](#tabla-de-conexiones)
+  - [Bus SPI compartido](#bus-spi-compartido)
+  - [Pantalla TFT 480x320](#pantalla-tft-480x320)
+  - [nRF24L01 #1](#nrf24l01-1)
+  - [nRF24L01 #2](#nrf24l01-2)
+  - [M5Stack IR Unit](#m5stack-ir-unit)
+  - [CC1101](#cc1101)
+  - [Botones](#botones)
+- [Diagrama visual de conexiones](#diagrama-visual-de-conexiones)
+- [Pin map rapido](#pin-map-rapido)
+- [Web flasher](#web-flasher)
+- [Compilar y subir con PlatformIO](#compilar-y-subir-con-platformio)
+- [Limites conocidos](#limites-conocidos)
+- [Creditos](#creditos)
+- [Redes y enlaces](#redes-y-enlaces)
+
 ## Que cambia frente a V1.0
 
 - Soporte para M5Stack IR Unit con captura, replay, guardado de senales y controles virtuales.
@@ -23,6 +58,8 @@ Firmware multi-herramienta para ESP32 Dev Module con pantalla TFT SPI 480x320. E
 - Menus con menos parpadeo, cursor recordado al volver y pantallas de diagnostico mas claras.
 - Documentacion de pines para soldar el hardware adicional sin adivinar.
 
+[Volver al indice](#indice)
+
 ## Hardware objetivo
 
 - ESP32 Dev Module clasico.
@@ -35,6 +72,8 @@ Firmware multi-herramienta para ESP32 Dev Module con pantalla TFT SPI 480x320. E
 
 Los modulos RF433T/RF433R no estan integrados en esta version porque el CC1101 cubre mejor el trabajo sub-GHz y permite mas diagnostico desde software.
 
+[Volver al indice](#indice)
+
 ## Galeria
 
 | Vista | Imagen |
@@ -43,6 +82,8 @@ Los modulos RF433T/RF433R no estan integrados en esta version porque el CC1101 c
 | Vista frontal | ![Vista frontal ESP32-TOOLS-PRO](img/pro2.JPG) |
 | Vista lateral | ![Vista lateral ESP32-TOOLS-PRO](img/pro3.JPG) |
 | Vista interna / montaje | ![Montaje ESP32-TOOLS-PRO](img/pro4.JPG) |
+
+[Volver al indice](#indice)
 
 ## Capturas del firmware
 
@@ -58,6 +99,8 @@ Los modulos RF433T/RF433R no estan integrados en esta version porque el CC1101 c
 | System Tools | ![System tools](img/system.JPG) |
 | Screensaver | ![Screensaver](img/screensaver.jpg) |
 
+[Volver al indice](#indice)
+
 ## Navegacion
 
 - `UP`: subir o cambiar valor.
@@ -65,6 +108,8 @@ Los modulos RF433T/RF433R no estan integrados en esta version porque el CC1101 c
 - `OK`: entrar, seleccionar, capturar o ejecutar accion.
 - `OK` mantenido: regresar, cancelar o salir de la pantalla actual.
 - Los submenus recuerdan la opcion donde estabas al regresar.
+
+[Volver al indice](#indice)
 
 ## Funciones principales
 
@@ -175,6 +220,8 @@ Funciones disponibles en la fase 1:
 
 El dashboard no ejecuta funciones que toman control completo del WiFi como Deauther, Evil Portal, KARMA o jamming. Es intencional para evitar conflictos con el AP del dashboard y mantenerlo estable.
 
+[Volver al indice](#indice)
+
 ## Componentes usados
 
 | Componente | Descripcion | Voltaje recomendado | Notas |
@@ -228,6 +275,8 @@ Estos diagramas muestran el cableado por bloques para que sea mas facil soldar y
 | --- | --- |
 | nRF24L01 PA + LNA | ![Pinout nRF24L01 PA LNA](img/componentes/Pines_NRF24.png) |
 | CC1101 | ![Pinout CC1101](img/componentes/cc1101-pines.png) |
+
+[Volver al indice](#indice)
 
 ## Tabla de conexiones
 
@@ -317,6 +366,8 @@ El jumper `GDO0 extra -> GPIO15` solo es necesario para las pruebas de `Lab Repl
 
 Los botones usan pull-up interno. Al presionarlos, el pin va a `LOW`.
 
+[Volver al indice](#indice)
+
 ## Diagrama visual de conexiones
 
 ```mermaid
@@ -345,6 +396,8 @@ flowchart LR
   classDef cc fill:#111827,stroke:#a855f7,stroke-width:2px,color:#ffffff;
   classDef btn fill:#111827,stroke:#e5e7eb,stroke-width:2px,color:#ffffff;
 ```
+
+[Volver al indice](#indice)
 
 ## Pin map rapido
 
@@ -375,6 +428,8 @@ ESP32 GPIO33  -> Boton OK a GND
 ESP32 GPIO25  -> Boton DOWN a GND
 ```
 
+[Volver al indice](#indice)
+
 ## Web flasher
 
 Flasheo directo desde navegador:
@@ -396,6 +451,8 @@ Repo objetivo:
 https://github.com/pepeangell5/ESP32-TOOLS-PRO-480x320-V2.0
 ```
 
+[Volver al indice](#indice)
+
 ## Compilar y subir con PlatformIO
 
 Compilar:
@@ -412,6 +469,8 @@ pio run -t upload --upload-port COM3
 
 Si la subida falla con error de boot/serial, manten presionado `BOOT` al iniciar la carga y sueltalo cuando PlatformIO empiece a escribir.
 
+[Volver al indice](#indice)
+
 ## Limites conocidos
 
 - WiFi es solo 2.4 GHz porque el ESP32 clasico no tiene radio 5 GHz.
@@ -422,9 +481,13 @@ Si la subida falla con error de boot/serial, manten presionado `BOOT` al iniciar
 - `Lab Replay` RF esta pensado para focos, enchufes o dispositivos propios de codigo fijo. No es para vehiculos, alarmas, cerraduras ni portones.
 - Los modulos RF433T/RF433R quedan fuera de V2.0.
 
+[Volver al indice](#indice)
+
 ## Creditos
 
 Proyecto creado y probado por PepeAngell para ESP32-TOOLS-PRO-480x320-V2.0.
+
+[Volver al indice](#indice)
 
 ## Redes y enlaces
 
@@ -432,3 +495,7 @@ Proyecto creado y probado por PepeAngell para ESP32-TOOLS-PRO-480x320-V2.0.
 - Web Flasher: [pepeangell5.github.io/ESP32-TOOLS-PRO-480x320-V2.0](https://pepeangell5.github.io/ESP32-TOOLS-PRO-480x320-V2.0/)
 - Instagram: [@pepeangelll](https://instagram.com/pepeangelll)
 - Facebook: [ESP32Tools](https://www.facebook.com/esp32tools/)
+
+[Volver al indice](#indice)
+
+[Volver al inicio](#esp32-tools-pro-480x320-v20)
