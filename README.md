@@ -6,7 +6,7 @@ Firmware multi-herramienta para ESP32 Dev Module con pantalla TFT SPI 480x320. E
 
 [![GitHub](https://img.shields.io/badge/GitHub-pepeangell5-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pepeangell5)
 [![Web Flasher](https://img.shields.io/badge/Web%20Flasher-Instalar%20Firmware-00C853?style=for-the-badge&logo=esphome&logoColor=white)](https://pepeangell5.github.io/ESP32-TOOLS-PRO-480x320-V2.0/)
-[![Instagram](https://img.shields.io/badge/Instagram-pepeangelll-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/pepeangelll)
+[![Instagram](https://img.shields.io/badge/Instagram-esp32_tools-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/esp32_tools)
 [![Facebook](https://img.shields.io/badge/Facebook-ESP32Tools-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/esp32tools/)
 
 ## Indice
@@ -495,7 +495,7 @@ Proyecto creado y probado por PepeAngell para ESP32-TOOLS-PRO-480x320-V2.0.
 
 - GitHub: [github.com/pepeangell5](https://github.com/pepeangell5)
 - Web Flasher: [pepeangell5.github.io/ESP32-TOOLS-PRO-480x320-V2.0](https://pepeangell5.github.io/ESP32-TOOLS-PRO-480x320-V2.0/)
-- Instagram: [@pepeangelll](https://instagram.com/pepeangelll)
+- Instagram: [@esp32_tools](https://instagram.com/esp32_tools)
 - Facebook: [ESP32Tools](https://www.facebook.com/esp32tools/)
 
 [Volver al indice](#indice)
